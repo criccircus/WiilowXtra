@@ -1,0 +1,406 @@
+<html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <title>Join- @CricCircus</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.1/shaka-player.ui.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.1/controls.min.css" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #000;
+            margin: 0;
+        }
+
+        /* Container for video and logo */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+        }
+
+        /* Style for the logo */
+        .logo {
+            position: absolute;
+            top: 10px;
+            /* Adjust vertical position */
+            left: 10px;
+            /* Adjust horizontal position */
+            z-index: 1;
+            /* Ensure the logo appears above the video */
+            max-width: 120px;
+            /* Set maximum width for the logo */
+            max-height: 120px;
+            /* Set maximum height for the logo */
+            pointer-events: none;
+            /* Prevent interference with video controls */
+        }
+
+        .shaka-spinner-container {
+            display: none;
+        }
+
+        .uc {
+            pointer-events: none;
+        }
+    </style>
+    <style>
+    
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #1c1c1c;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            z-index: 1002;
+            width: 90%;
+            max-width: 400px;
+            animation: fadeIn 0.5s;
+        }
+        
+    
+        .popup h2 {
+            color: #ffe600;
+            font-size: 24px;
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+    
+        .popup button {
+            background-color: #08c;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-bottom: 10px;
+            width: 100%;
+            font-size: 16px;
+        }
+    
+        .popup button:hover {
+            background-color: #069;
+            transform: scale(1.05);
+        }
+    
+        .popup .close-btn {
+            background-color: #555;
+            color: #bbbbbb;
+        }
+    
+        .popup .close-btn:hover {
+            background-color: #333;
+        }
+    
+        .popup a {
+            color: #08c;
+            text-decoration: none;
+        }
+    
+        
+        @keyframes fadeIn {
+        from {
+            opacity: 0
+        }
+    
+        to {
+            opacity: 1
+        }
+    }
+    
+        @media (max-width: 600px) {
+            .popup {
+                width: 90%;
+            }
+    
+            .popup h2 {
+                font-size: 20px;
+            }
+    
+            .popup p {
+                font-size: 14px;
+            }
+    
+            .popup button {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+    
+        .tg-banner {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: linear-gradient(135deg, #1da1f2, #0077b5);
+        border-radius: 12px;
+        padding: 12px 20px; /* Increased padding for a wider button */
+        display: flex;
+        align-items: center;
+        color: #fff;
+        font-family: 'Arial', sans-serif;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        text-decoration: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        min-width: 250px; /* Ensures a wider button */
+        justify-content: center; /* Centers content */
+      }
+    
+      .tg-banner:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      }
+    
+      .tg-banner img {
+        width: 32px;
+        height: 32px;
+        margin-right: 12px; /* Added more space between icon and text */
+        border-radius: 50%;
+        border: 2px solid #fff;
+        transition: transform 0.3s ease;
+      }
+    
+      .tg-banner:hover img {
+        transform: scale(1.1);
+      }
+    
+      .tg-banner span {
+        font-size: 18px;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+        flex-grow: 1; /* Ensures text spans the available space */
+        text-align: center; /* Centers the text */
+      }
+    
+        
+    </style>
+</head>
+<body>
+    <!-- Video container -->
+    <div class="video-container">
+        <!-- Logo inside the video -->
+        <img src="" alt="Logo" class="logo">
+        <!-- Video player -->
+        <div data-shaka-player-container style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <video autoplay muted data-shaka-player id="video" poster="https://cdn6.aptoide.com/imgs/f/2/5/f2570ffcbce276a93baf8dd15009347e_fgraphic.jpg" style="width:100%; height:100%;"></video>
+        </div>
+    </div>
+    <a href="https://t.me/+k3AAY91WjYowZDJl" class="tg-banner">
+        <img src="https://i.pinimg.com/originals/31/2a/f9/312af9235aadad69655688eaee97eabf.png" alt="Telegram logo">
+        <span>
+            Join Now @CricCircus
+        </span>
+    </a>
+    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
+<!--Use the specified version-->
+<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@x.x.x'></script>
+<!--Use latest version-->
+<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
+    <script>
+        //<!--
+        function _0x21e9() {
+            const _0x538772 = ['left', 'HwyiL', 'volume', 'ehJEz', 'style', 'translate(', 'rgb(255,\x202', 'Unable\x20to\x20', 'addEventLi', '55,\x200)', 'div', 'Join\x20For\x20M', 'pBvHL', 'uDGuB', 'textConten', 'hutiye\x20By\x20', 'href', 'GuMaG', '152duSebg', 'player', 'stener', '://dfwlive', 'detail', 'e.ammoapps', 'message', 'location', 'DSKTx', 'mute', 'time_and_d', '10px', 'getElement', 'top', 'gCLtF', 'Arial,\x20san', '80)/index.', 'HxHIw', 'afqIh', '/HLS.cps/L', 'ZNLbL', 'ZIYZh', 'innerHTML', 'ById', 'PXVjU', '558MApVDt', 'YUrTl', 'https://co', 'oad-failed', '12304ZimFCQ', 'RzmyX', 'IHUGP', 'fqvRi', 'IaGEs', 'fontSize', 'wMFTD', 'vPyIn', '-50%,\x20-50%', 'DOMContent', 'ent', 'Ab\x20to\x20copy', 'spacer', 'overflow_m', '707058vWaBFy', 'load', '8,\x20128,\x201)', 'getControl', 'rs-anywher', '158480rOpciQ', 'MShIG', 'Color', 'https://t.', 'ponsored.a', 'LDUIJ', 'I\x20library!', 'createElem', '-v1-c1p3-s', '@CricCir', 'rgb(255,\x200', 'cus', 'rgb(0,\x20255', 'en\x20loaded!', 'The\x20video\x20', 'shaka-ui-l', ',\x200)', 'oaded', 's-serif', 'getPlayer', 'configure', 'play_pause', 'SnHzF', 'pOPtx', 'body', 'textAlign', 'Yaxys', 'code', 'self', 'ive/channe', 'kamaized.n', 'et/Content', '#000', '292.dfw.10', 'l(WILLXT-3', 'OvGhE', 'm3u8', 'rgba(0,\x2012', 'MIypE', '20px', '2269695zhQthh', 'center', 'position', '\x20mat\x20kar\x20c', '50%', 'quality', 'SffWu', 'WKlyA', 'fixed', 'video', 'fontFamily', '2420556qwbNRb', 'padding', 'Loaded', 'me/+k3AAY91', '3555HaoYYc', '\x20255,\x201)', 'WbDHA', '.com/https', 'has\x20now\x20be', '31172c2475', '406e56fd3b', 'object', 'log', 'background', 'error', 'load\x20the\x20U', 'uration', 'color', 'Error\x20code', '#fff', 'wYSBe', 'WjYowZDJl', 'appendChil', '966JacKRe', 'zKpNG', 'fullscreen', 'rgba(0,\x200,', 'HOrNs', 'mbqiM', '758736pkiwxX', 'FsUQT', 'transform', 'QCCKR', '323a46b02a', 'borderRadi', 'enu', 'uQreQ', 'ore\x20Links!'];
+            _0x21e9 = function() {
+                return _0x538772;
+            }
+            ;
+            return _0x21e9();
+        }
+        const _0x157b0a = _0x4057;
+        (function(_0x37bb28, _0xd1b692) {
+            const _0x38a71e = _0x4057
+              , _0x3cfae0 = _0x37bb28();
+            while (!![]) {
+                try {
+                    const _0xc1443c = parseInt(_0x38a71e(0x132)) / (0x1fdf + -0x89 * -0x44 + -0x4442) * (parseInt(_0x38a71e(0x166)) / (-0x90c + 0x8 * 0x1a3 + -0x40a)) + parseInt(_0x38a71e(0x191)) / (-0x25a6 + -0x14c + -0x1 * -0x26f5) + -parseInt(_0x38a71e(0x14b)) / (-0x2473 + 0x1aed + 0x98a) + -parseInt(_0x38a71e(0x123)) / (-0x14f6 + -0xb * -0x217 + -0x202) + -parseInt(_0x38a71e(0x12e)) / (-0x1aab + 0x233d + -0x88c) + parseInt(_0x38a71e(0x145)) / (0x2553 + 0x19df + -0x3f2b) * (-parseInt(_0x38a71e(0x183)) / (0x17d8 + 0x4b7 + -0x1c87)) + -parseInt(_0x38a71e(0x17f)) / (0xc9 * -0xb + -0x9 * -0xc7 + 0x21 * 0xd) * (-parseInt(_0x38a71e(0xfb)) / (-0x8eb + -0x31 * 0x7 + 0xa4c));
+                    if (_0xc1443c === _0xd1b692)
+                        break;
+                    else
+                        _0x3cfae0['push'](_0x3cfae0['shift']());
+                } catch (_0x24daad) {
+                    _0x3cfae0['push'](_0x3cfae0['shift']());
+                }
+            }
+        }(_0x21e9, -0x4c4f2 + -0x1 * 0x263b1 + 0xaa7c0));
+        window[_0x157b0a(0x173)] !== window[_0x157b0a(0x117)] && window[_0x157b0a(0x15c) + _0x157b0a(0x168)](_0x157b0a(0x18c) + _0x157b0a(0x130), function() {
+            const _0x1314d0 = _0x157b0a
+              , _0x38d9d = {
+                'MIypE': _0x1314d0(0x15e),
+                'ZIYZh': _0x1314d0(0x16c),
+                'uQreQ': _0x1314d0(0x18e) + _0x1314d0(0x126) + _0x1314d0(0x163) + _0x1314d0(0x104) + _0x1314d0(0x106),
+                'ehJEz': _0x1314d0(0x141),
+                'GuMaG': _0x1314d0(0x11b),
+                'IHUGP': _0x1314d0(0x12b),
+                'afqIh': _0x1314d0(0x127),
+                'wMFTD': _0x1314d0(0x159) + _0x1314d0(0x18b) + ')',
+                'OvGhE': _0x1314d0(0x122),
+                'FsUQT': _0x1314d0(0x171),
+                'HxHIw': _0x1314d0(0x124),
+                'uDGuB': _0x1314d0(0x175) + _0x1314d0(0x10d)
+            };
+            document[_0x1314d0(0x113)][_0x1314d0(0x17c)] = '';
+            const _0x7c0621 = document[_0x1314d0(0x102) + _0x1314d0(0x18d)](_0x38d9d[_0x1314d0(0x121)]);
+            _0x7c0621['id'] = _0x38d9d[_0x1314d0(0x17b)],
+            _0x7c0621[_0x1314d0(0x162) + 't'] = _0x38d9d[_0x1314d0(0x152)],
+            _0x7c0621[_0x1314d0(0x158)][_0x1314d0(0x13f)] = _0x38d9d[_0x1314d0(0x157)],
+            _0x7c0621[_0x1314d0(0x158)][_0x1314d0(0x13b) + _0x1314d0(0xfd)] = _0x38d9d[_0x1314d0(0x165)],
+            _0x7c0621[_0x1314d0(0x158)][_0x1314d0(0x125)] = _0x38d9d[_0x1314d0(0x185)],
+            _0x7c0621[_0x1314d0(0x158)][_0x1314d0(0x173)] = _0x38d9d[_0x1314d0(0x178)],
+            _0x7c0621[_0x1314d0(0x158)][_0x1314d0(0x154)] = _0x38d9d[_0x1314d0(0x178)],
+            _0x7c0621[_0x1314d0(0x158)][_0x1314d0(0x14d)] = _0x38d9d[_0x1314d0(0x189)],
+            _0x7c0621[_0x1314d0(0x158)][_0x1314d0(0x12f)] = _0x38d9d[_0x1314d0(0x11e)],
+            _0x7c0621[_0x1314d0(0x158)][_0x1314d0(0x150) + 'us'] = _0x38d9d[_0x1314d0(0x14c)],
+            _0x7c0621[_0x1314d0(0x158)][_0x1314d0(0x114)] = _0x38d9d[_0x1314d0(0x177)],
+            _0x7c0621[_0x1314d0(0x158)][_0x1314d0(0x12d)] = _0x38d9d[_0x1314d0(0x161)],
+            _0x7c0621[_0x1314d0(0x158)][_0x1314d0(0x188)] = _0x38d9d[_0x1314d0(0x11e)],
+            document[_0x1314d0(0x113)][_0x1314d0(0x144) + 'd'](_0x7c0621);
+        });
+        async function init() {
+            const _0x1b5322 = _0x157b0a
+              , _0x2fa35b = {
+                'YUrTl': _0x1b5322(0x12c),
+                'HOrNs': _0x1b5322(0x14f) + _0x1b5322(0x137) + _0x1b5322(0x138) + 'e6',
+                'MShIG': _0x1b5322(0x110),
+                'WKlyA': _0x1b5322(0x16f),
+                'IaGEs': _0x1b5322(0x156),
+                'WbDHA': _0x1b5322(0x18f),
+                'fqvRi': _0x1b5322(0x170) + _0x1b5322(0x13e),
+                'SnHzF': _0x1b5322(0x128),
+                'zKpNG': _0x1b5322(0x147),
+                'HwyiL': _0x1b5322(0x190) + _0x1b5322(0x151),
+                'QCCKR': _0x1b5322(0x148) + _0x1b5322(0x133),
+                'pOPtx': _0x1b5322(0x107) + _0x1b5322(0x10b),
+                'RzmyX': _0x1b5322(0x105) + _0x1b5322(0x10b),
+                'wYSBe': _0x1b5322(0x15a) + _0x1b5322(0x15d),
+                'pBvHL': _0x1b5322(0x120) + _0x1b5322(0x193),
+                'LDUIJ': _0x1b5322(0x13c),
+                'Yaxys': _0x1b5322(0x181) + _0x1b5322(0xfa) + _0x1b5322(0x16b) + _0x1b5322(0x135) + _0x1b5322(0x169) + _0x1b5322(0x103) + _0x1b5322(0xff) + _0x1b5322(0x119) + _0x1b5322(0x11a) + _0x1b5322(0x179) + _0x1b5322(0x118) + _0x1b5322(0x11d) + _0x1b5322(0x11c) + _0x1b5322(0x176) + _0x1b5322(0x11f),
+                'mbqiM': _0x1b5322(0x109) + _0x1b5322(0x136) + _0x1b5322(0x108),
+                'ZNLbL': function(_0x12876d, _0x361328) {
+                    return _0x12876d(_0x361328);
+                }
+            }
+              , _0x35f4a7 = document[_0x1b5322(0x172) + _0x1b5322(0x17d)](_0x2fa35b[_0x1b5322(0x180)])
+              , _0x311a68 = _0x35f4a7['ui']
+              , _0x596a5f = _0x311a68[_0x1b5322(0x194) + 's']()
+              , _0x54c06f = _0x596a5f[_0x1b5322(0x10e)]();
+            _0x54c06f[_0x1b5322(0x10f)]({
+                'drm': {
+                    'clearKeys': {
+                        '1f52934d28a25c51a5dd577a650dcece': _0x2fa35b[_0x1b5322(0x149)]
+                    }
+                }
+            }),
+            _0x311a68[_0x1b5322(0x10f)]({
+                'controlPanelElements': [_0x2fa35b[_0x1b5322(0xfc)], _0x2fa35b[_0x1b5322(0x12a)], _0x2fa35b[_0x1b5322(0x187)], _0x2fa35b[_0x1b5322(0x134)], _0x2fa35b[_0x1b5322(0x186)], _0x2fa35b[_0x1b5322(0x111)], _0x2fa35b[_0x1b5322(0x146)], _0x2fa35b[_0x1b5322(0x155)]],
+                'volumeBarColors': {
+                    'base': _0x2fa35b[_0x1b5322(0x14e)],
+                    'level': _0x2fa35b[_0x1b5322(0x112)]
+                },
+                'seekBarColors': {
+                    'base': _0x2fa35b[_0x1b5322(0x184)],
+                    'buffered': _0x2fa35b[_0x1b5322(0x142)],
+                    'played': _0x2fa35b[_0x1b5322(0x160)]
+                }
+            }),
+            window[_0x1b5322(0x167)] = _0x54c06f,
+            window['ui'] = _0x311a68,
+            _0x54c06f[_0x1b5322(0x15c) + _0x1b5322(0x168)](_0x2fa35b[_0x1b5322(0x100)], onPlayerErrorEvent),
+            _0x596a5f[_0x1b5322(0x15c) + _0x1b5322(0x168)](_0x2fa35b[_0x1b5322(0x100)], onUIErrorEvent);
+            try {
+                await _0x54c06f[_0x1b5322(0x192)](_0x2fa35b[_0x1b5322(0x115)]),
+                console[_0x1b5322(0x13a)](_0x2fa35b[_0x1b5322(0x14a)]);
+            } catch (_0x2d16bd) {
+                _0x2fa35b[_0x1b5322(0x17a)](onPlayerError, _0x2d16bd);
+            }
+        }
+        function onPlayerErrorEvent(_0x4b81e1) {
+            const _0x1188ba = _0x157b0a
+              , _0x1b57b6 = {
+                'gCLtF': function(_0xb644a5, _0x5c18e7) {
+                    return _0xb644a5(_0x5c18e7);
+                }
+            };
+            _0x1b57b6[_0x1188ba(0x174)](onPlayerError, _0x4b81e1[_0x1188ba(0x16a)]);
+        }
+        function onPlayerError(_0x1c88c0) {
+            const _0x5ce074 = _0x157b0a
+              , _0x1c9659 = {
+                'DSKTx': _0x5ce074(0x140),
+                'PXVjU': _0x5ce074(0x139)
+            };
+            console[_0x5ce074(0x13c)](_0x1c9659[_0x5ce074(0x16e)], _0x1c88c0[_0x5ce074(0x116)], _0x1c9659[_0x5ce074(0x17e)], _0x1c88c0);
+        }
+        function onUIErrorEvent(_0x1f096d) {
+            const _0x5ce692 = _0x157b0a
+              , _0x408d58 = {
+                'SffWu': function(_0x4d03ce, _0x531434) {
+                    return _0x4d03ce(_0x531434);
+                }
+            };
+            _0x408d58[_0x5ce692(0x129)](onPlayerError, _0x1f096d[_0x5ce692(0x16a)]);
+        }
+        function _0x4057(_0x269ab8, _0x39e689) {
+            const _0xbe6d0a = _0x21e9();
+            return _0x4057 = function(_0x50cbe0, _0x49acfa) {
+                _0x50cbe0 = _0x50cbe0 - (-0x1661 + -0x1392 * -0x1 + 0x3c9);
+                let _0x17f184 = _0xbe6d0a[_0x50cbe0];
+                return _0x17f184;
+            }
+            ,
+            _0x4057(_0x269ab8, _0x39e689);
+        }
+        function initFailed() {
+            const _0x4010ae = _0x157b0a
+              , _0x3b9ffe = {
+                'vPyIn': _0x4010ae(0x15b) + _0x4010ae(0x13d) + _0x4010ae(0x101)
+            };
+            console[_0x4010ae(0x13c)](_0x3b9ffe[_0x4010ae(0x18a)]);
+        }
+        document[_0x157b0a(0x15c) + _0x157b0a(0x168)](_0x157b0a(0x10a) + _0x157b0a(0x10c), init),
+        document[_0x157b0a(0x15c) + _0x157b0a(0x168)](_0x157b0a(0x10a) + _0x157b0a(0x182), initFailed);
+        confirm(_0x157b0a(0x15f) + _0x157b0a(0x153) + '!') && (window[_0x157b0a(0x16d)][_0x157b0a(0x164)] = _0x157b0a(0xfe) + _0x157b0a(0x131) + _0x157b0a(0x143));
+        //-->
+         // Display a modern pop-up message when the page starts
+    window.addEventListener("load", function() {
+        // Create the popup element
+        var popup = document.createElement("div");
+        popup.className = "popup";
+
+        // Set the popup content
+        popup.innerHTML = `
+
+        <h2>Join Our Telegram Channel<br>@CricCircus For More Updates And Support Us</h2>
+          <button id="joinButton">Join Our Channel and Support Us</button>
+          <button id="closeButton" class="close-btn">Already Joined</button>
+        `;
+
+        // Append the popup to the body
+        document.body.appendChild(popup);
+
+        // Add click event to the Join Now button
+        document.getElementById("joinButton").addEventListener("click", function() {
+          window.location.href = "https://t.me/+k3AAY91WjYowZDJl";
+        });
+
+        // Add click event to the Already Joined button to close the popup
+        document.getElementById("closeButton").addEventListener("click", function() {
+          document.body.removeChild(popup);
+        });
+      });
+      
+    </script>
+    
+</body>
+
+
+
+
+</html>
